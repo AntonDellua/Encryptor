@@ -1,0 +1,6 @@
+#Ignored Files
+
+*/.idea
+*/target
+*\.idea
+*\target
