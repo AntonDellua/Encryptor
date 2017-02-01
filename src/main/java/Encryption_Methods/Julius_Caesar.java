@@ -5,9 +5,9 @@ package Encryption_Methods;
  */
 public class Julius_Caesar  implements Encryptor{
 
-    int size;
-    String alphabet;
-    int key;
+    private int size;
+    private String alphabet;
+    private int key;
     char[] english_alphabet = {'a','b','c','d','e','f',
                                 'g','h','i','j','k','l',
                                 'm','n','o','p','q','r',
@@ -20,9 +20,16 @@ public class Julius_Caesar  implements Encryptor{
         size = english_alphabet.length;
     }
 
-    public void setKey(int key) {
-        this.key = key;
+    public void setKey(int key) {this.key = key;}
+
+    public void setKey(String key) {
+
     }
+
+    public void setKey(int[][] key) {
+
+    }
+
 
     public String Encrypt(){
         String encrypted_alphabet = "";
