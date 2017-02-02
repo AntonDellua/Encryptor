@@ -1,4 +1,4 @@
-import Encryption_Methods.Hill_Cypher;
+import Encryption_Methods.Julius_Caesar;
 
 /**
  * Created by Nutrient on 30/01/2017.
@@ -10,9 +10,9 @@ public class launcher {
         key[0] = new int[]{7, 3 };
         key[1] = new int[]{4, 5};
 
-        Hill_Cypher x = new Hill_Cypher();
-        x.setAlphabet("universidad");
-        x.setKey(key);
+        Julius_Caesar x = new Julius_Caesar();
+        x.setUnencryptedString("ve a la tienda");
+        x.setKey(7);
         x.Encrypt();
     }
 }

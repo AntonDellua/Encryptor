@@ -5,7 +5,7 @@ package Encryption_Methods;
  */
 public interface Encryptor {
 
-    void setAlphabet(String alphabet);
+    void setUnencryptedString(String unencryptedString);
     void setKey(int key);
     void setKey(String key);
     void setKey(int[][] key);
