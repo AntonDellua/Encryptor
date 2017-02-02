@@ -45,4 +45,5 @@ public class Alphabet {
         return currentAlphabet.length;
     }
 
+
 }

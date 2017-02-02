@@ -28,11 +28,11 @@ public class Julius_Caesar  extends Alphabet implements Encryptor{
     }
 
 
-    public String Encrypt(){
+    public String Encrypt() {
         String encrypted_alphabet = "";
 
-        for (int i = 0; i < alphabet.length(); i++){
-            encrypted_alphabet += getAlphabetChar((alphabet.charAt(i)-97 + key) % size);
+        for (int i = 0; i < alphabet.length(); i++) {
+            encrypted_alphabet += getAlphabetChar((alphabet.charAt(i) - 97 + key) % size);
         }
         System.out.println(encrypted_alphabet.toUpperCase());
         return encrypted_alphabet.toUpperCase();

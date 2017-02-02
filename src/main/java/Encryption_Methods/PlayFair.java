@@ -117,6 +117,7 @@ public class PlayFair extends Alphabet implements Encryptor{
     }
 
 
+
     private void getRow_and_Column(char firstLetter, char secondLetter){
         for(int i = 0; i < 5 ; i++){
             for (int j = 0; j < 5 ; j++){
