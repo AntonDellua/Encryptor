@@ -69,6 +69,7 @@ public class Hill_Cypher extends Alphabet implements Encryptor {
                     break;
                 }
             }
+
         }
         System.out.println(encrypted_alphabet.toUpperCase());
         return encrypted_alphabet.toUpperCase();

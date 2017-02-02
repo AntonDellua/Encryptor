@@ -10,4 +10,5 @@ public interface Encryptor {
     void setKey(String key);
     void setKey(int[][] key);
     String Encrypt();
+
 }

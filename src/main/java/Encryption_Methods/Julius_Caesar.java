@@ -37,4 +37,5 @@ public class Julius_Caesar  extends Alphabet implements Encryptor{
         System.out.println(encrypted_alphabet.toUpperCase());
         return encrypted_alphabet.toUpperCase();
     }
+
 }
