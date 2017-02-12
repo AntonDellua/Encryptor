@@ -1,4 +1,4 @@
-package Encryption_Methods;
+package Encryption_Methods.Classic_Cipher;
 
 /**
  * Created by Nutrient on 30/01/2017.
@@ -30,6 +30,7 @@ public class PlayFair extends Alphabet implements Encryptor{
         int getKeyChar = 0;
         for(int i = 0; i < 5 ; i++){
             for (int j = 0; j < 5; j++){
+
                 if (getKeyChar < key.length() && getAlphabetChar(key.charAt(getKeyChar)) != '0'){
 
                     if(key.charAt(getKeyChar) == 'j'){
@@ -43,7 +44,7 @@ public class PlayFair extends Alphabet implements Encryptor{
                     else{
 
                         matrix[i][j] = key.charAt(getKeyChar);
-                        setAlphabetChar((key.charAt(getKeyChar) == 'i') ? 'j': key.charAt(getKeyChar));
+                        setAlphabetChar((key.charAt(getKeyChar) == 'i') ?  key.charAt(getKeyChar) : 'j');
                         setAlphabetChar(key.charAt(getKeyChar++));
 
                     }
@@ -71,6 +72,7 @@ public class PlayFair extends Alphabet implements Encryptor{
 
     public void setKey(String key) {
         this.key = key;
+        setCurrentAlphabet(0);
         matrix = new char[5][5];
         fillMatrix(matrix);
         System.out.println(matrix[0]);
@@ -119,7 +121,9 @@ public class PlayFair extends Alphabet implements Encryptor{
 
     private void getRow_and_Column(char firstLetter, char secondLetter){
         for(int i = 0; i < 5 ; i++){
+
             for (int j = 0; j < 5 ; j++){
+
                 if(matrix[i][j] == firstLetter){
                     firstRow = i;
                     firstColumn = j;
@@ -130,5 +134,35 @@ public class PlayFair extends Alphabet implements Encryptor{
                 }
             }
         }
+    }
+
+    public String Decrypt(String encryptedString, String key) {
+        String decryptedString = "";
+        char[][] decrypterMatrix = matrix;
+        char firstLetter;
+        char secondLetter;
+        int index = 0;
+        while(index < encryptedString.length()){
+            firstLetter = encryptedString.toLowerCase().charAt(index++);
+            secondLetter =  encryptedString.toLowerCase().charAt(index++);
+
+            getRow_and_Column(firstLetter,secondLetter);
+
+            if(firstRow == secondRow){
+                decryptedString += (!(firstColumn-1 < 0)) ? decrypterMatrix[firstRow][firstColumn-1] :  decrypterMatrix[firstRow][4];
+                decryptedString += (!(secondColumn-1 < 0)) ?  decrypterMatrix[secondRow][secondColumn-1] :  decrypterMatrix[secondRow][4];
+            }
+            else if(firstColumn == secondColumn){
+                decryptedString += (!(firstRow-1 < 0)) ? decrypterMatrix[firstRow-1][firstColumn]: decrypterMatrix[4][firstColumn];
+                decryptedString += (!(secondRow-1 < 0)) ? decrypterMatrix[secondRow-1][secondColumn]: decrypterMatrix[4][secondColumn];
+            }
+            else {
+                decryptedString += decrypterMatrix[firstRow][secondColumn];
+                decryptedString += decrypterMatrix[secondRow][firstColumn];
+            }
+
+        }
+        System.out.println(decryptedString);
+        return decryptedString;
     }
 }

@@ -1,11 +1,11 @@
-package Encryption_Methods;
+package Encryption_Methods.Classic_Cipher;
 
 /**
  * Created by Nutrient on 02/02/2017.
  */
 public class Alphabet {
 
-    private int alphabet;
+
     private char[] english_alphabet = { 'a','b','c','d','e',
             'f','g','h','i','j',
             'k','l','m','n','o',

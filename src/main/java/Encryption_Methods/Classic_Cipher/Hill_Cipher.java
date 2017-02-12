@@ -1,16 +1,16 @@
-package Encryption_Methods;
+package Encryption_Methods.Classic_Cipher;
 
 /**
  * Created by Nutrient on 30/01/2017.
  */
-public class Hill_Cypher extends Alphabet implements Encryptor {
+public class Hill_Cipher extends Alphabet implements Encryptor {
     private int size;
     private String UnencryptedString;
     private int[][] key;
 
 
     public void setUnencryptedString(String unencryptedString) {
-        this.UnencryptedString = unencryptedString;
+        this.UnencryptedString = unencryptedString.toLowerCase().replaceAll("\\s","");
         size = unencryptedString.length();
         setCurrentAlphabet(0);
     }
@@ -73,5 +73,9 @@ public class Hill_Cypher extends Alphabet implements Encryptor {
         }
         System.out.println(encrypted_alphabet.toUpperCase());
         return encrypted_alphabet.toUpperCase();
+    }
+
+    public String Decrypt(String encryptedString){
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package Encryption_Methods;
+package Encryption_Methods.Classic_Cipher;
 
 /**
  * Created by Nutrient on 30/01/2017.
@@ -38,4 +38,12 @@ public class Julius_Caesar  extends Alphabet implements Encryptor{
         return encrypted_alphabet.toUpperCase();
     }
 
+    public String Decrypt(String encryptedString, int key){
+        String decryptedString = "";
+
+        for (int i=0; i < encryptedString.length();i++){
+            decryptedString += getAlphabetChar((encryptedString.toUpperCase().charAt(i) - 65 + alphabet.length()) - key);
+        }
+        return decryptedString;
+    }
 }
